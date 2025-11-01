@@ -1,14 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
-
-// ...existing code...
-interface IERC20 {
-    function transfer(address to, uint256 amount) external returns (bool);
-    function transferFrom(address from, address to, uint256 amount) external returns (bool);
-    function balanceOf(address account) external view returns (uint256);
-    function allowance(address owner, address spender) external view returns (uint256);
-}
-// ...existing code...
+import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 // Custom errors (hemat gas)
 error AmountZero();
@@ -76,7 +68,7 @@ contract LeetTokenSender {
         }
 
         // Tokens
-        for (uint256 i = 0; i < tokenAddresses.length; i++) {
+        for (uint256 i = 0; i < tokenAddresses.length; ++i) {
             address token = tokenAddresses[i];
             if (token == address(0)) revert TokenZeroAddress();
             uint256 tokenAmount = tokenBalances[token][msg.sender];

@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 // A library is like a contract with reusable code, which can be called by other contracts.
 // Deploying common code can reduce gas costs.
 library ConvertLib{
-	function convert(uint amount, uint conversionRate) public pure returns (uint convertedAmount)
+	function convert(uint256 amount, uint256 conversionRate) public pure returns (uint256 convertedAmount)
 	{
 		return amount * conversionRate;
 	}
